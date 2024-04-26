@@ -1,6 +1,12 @@
 package net.doneft.endextensionmod;
 
 import com.mojang.logging.LogUtils;
+import net.doneft.endextensionmod.block.ModBlocks;
+import net.doneft.endextensionmod.item.ModCreativeModTab;
+import net.doneft.endextensionmod.item.ModItems;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -24,16 +30,17 @@ public class EndExtensionMod
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public EndExtensionMod()
-    {
+    public EndExtensionMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModCreativeModTab.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
     }
 
@@ -43,7 +50,10 @@ public class EndExtensionMod
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.RAWIREND);
+            event.accept(ModItems.IRENDINGOT);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
