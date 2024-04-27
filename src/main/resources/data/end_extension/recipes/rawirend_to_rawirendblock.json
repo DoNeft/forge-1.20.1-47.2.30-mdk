@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "end_extension:rawirend"
+    }
+  },
+  "result": {
+    "item": "end_extension:raw_irendblock"
+  }
+}

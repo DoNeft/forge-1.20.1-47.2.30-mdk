@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "irendingot",
+  "ingredient": {
+    "item": "end_extension:rawirend"
+  },
+  "result": "end_extension:irendingot"
+}
+
