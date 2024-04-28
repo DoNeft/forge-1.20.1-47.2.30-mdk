@@ -20,4 +20,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> IRENDINGOT = ITEMS.register("irendingot",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> END_BERRIES = ITEMS.register("end_berries",
+            () -> new Item(new Item.Properties().food(ModFoods.END_BERRIES)));
 }

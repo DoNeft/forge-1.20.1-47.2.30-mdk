@@ -20,6 +20,7 @@ public class ModCreativeModTab {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.RAWIREND.get());
                         output.accept(ModItems.IRENDINGOT.get());
+                        output.accept(ModItems.END_BERRIES.get());
 
                         output.accept(ModBlocks.IRENDBLOCK.get());
                         output.accept(ModBlocks.RAW_IRENDBLOCK.get());
@@ -33,3 +34,4 @@ public class ModCreativeModTab {
     }
 
 }
+
